@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const roles: string[] = ["Fullstack Developer", "Video Editor",];
+const roles: string[] = ["Godswill Emmanuel", "a Fullstack Developer", "a Video Editor", "a Mobile Developer"];
 
 function HeroSection() {
   const [index, setIndex] = useState<number>(0);
@@ -11,13 +11,12 @@ function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev: number) => (prev + 1) % roles.length);
-    }, 2500);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden lg:ml-[280px]">
-      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
@@ -27,28 +26,29 @@ function HeroSection() {
         <div className="absolute inset-0 bg-[#07111d]/70 backdrop-brightness-50" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center text-white sm:px-8 md:px-12 lg:px-16">
         <p className="mb-4 text-xl font-semibold sm:text-2xl md:text-4xl lg:text-5xl">
           Welcome
         </p>
 
-        {/* Animated role line */}
         <div className="mb-6 flex w-full flex-col items-center justify-center gap-2 text-3xl font-extrabold sm:text-4xl md:text-5xl lg:flex-row lg:gap-4 lg:text-6xl xl:text-7xl">
-          <span className="shrink-0">I&apos;m a</span>
+          <span className="shrink-0">I&apos;m </span>
 
-          {/* Animation container — wider */}
           <div
-            className="relative h-[1.2em] overflow-hidden text-cyan-400"
+            className="relative h-[1.5em] overflow-hidden text-cyan-400"
             style={{ width: "min(100%, 900px)" }}
           >
             <AnimatePresence mode="wait">
               <motion.span
                 key={roles[index]}
-                initial={{ y: 50, opacity: 0, filter: "blur(8px)" }}
+                initial={{ y: 40, opacity: 0, filter: "blur(10px)" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                exit={{ y: -50, opacity: 0, filter: "blur(8px)" }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                exit={{ y: -40, opacity: 0, filter: "blur(10px)" }}
+                transition={{ 
+                  duration: 1.2,  
+                  ease: [0.25, 0.1, 0.25, 1],  
+                  times: [0, 2] 
+                }}
                 className="absolute inset-0 flex items-center justify-center whitespace-nowrap lg:justify-start"
               >
                 {roles[index]}.
