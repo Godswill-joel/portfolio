@@ -1,6 +1,7 @@
 "use client";
-import Sidebar from "../components/Sidebar";
+import Link from "next/link";
 import { useState, useEffect } from "react";
+import Sidebar from "../components/Sidebar";
 import { AnimatePresence, motion } from "framer-motion";
 
 const roles: string[] = ["Godswill Emmanuel", "a Fullstack Developer", "a Video Editor", "a Mobile Developer"];
@@ -60,10 +61,13 @@ function HeroSection() {
         <p className="mb-10 text-sm text-white/85 sm:text-base md:text-xl lg:text-2xl">
           based in Port-Harcourt, Nigeria.
         </p>
-
-        <button className="rounded-full border-2 border-cyan-400 px-7 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-400 hover:text-[#07111d] sm:px-10 sm:py-4 sm:text-base md:text-lg">
+       <Link href={"/About"}>
+       <button
+        className="rounded-full border-2 border-cyan-400 px-7 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-400 hover:text-[#07111d] sm:px-10 sm:py-4 sm:text-base md:text-lg">
           Hire Me
         </button>
+       </Link>
+       
       </div>
     </section>
   );

@@ -10,10 +10,9 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { value: 10, suffix: "+", label: "Years Experiance" },
-  { value: 250, suffix: "+", label: "Happy Clients" },
-  { value: 650, suffix: "+", label: "Projects Done" },
-  { value: 38, label: "Get Awards" },
+  { value: 7, suffix: "+", label: "Years Experiance" },
+  { value: 20, suffix: "+", label: "Happy Clients" },
+  { value: 25, suffix: "+", label: "Projects Done" },
 ];
 
 const infoItems = [
@@ -81,7 +80,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="mb-6 text-3xl font-bold text-slate-800 md:text-4xl">
-              I&apos;m <span className="text-cyan-400">Godswill Asuquo,</span> a Web Developer
+              I&apos;m <span className="text-cyan-400">Godswill Asuquo,</span> a Developer
             </h2>
 
             <p className="mb-6 text-lg leading-9 text-slate-600">

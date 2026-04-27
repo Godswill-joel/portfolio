@@ -1,13 +1,16 @@
 import AboutPage from "./About";
 import PortfolioLandingPage from "./Hero";
-import Hero from "./Hero";
 
+export default function Home() {
+  return (
+    <main>
+      <section id="home">
+        <PortfolioLandingPage />
+      </section>
 
-export default function Home (){
-    return (
-        <div>
-           <PortfolioLandingPage />
-           <AboutPage />
-        </div>
-    )
+      <section id="about">
+        <AboutPage />
+      </section>
+    </main>
+  );
 }
