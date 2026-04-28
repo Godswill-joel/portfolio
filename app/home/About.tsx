@@ -16,7 +16,7 @@ const stats: Stat[] = [
 ];
 
 const infoItems = [
-  { label: "Name", value: "Godswill Asuquo" },
+  { label: "Name", value: "Godswill Emmanuel" },
   { label: "Email", value: "asuquogodswill0@gmail.com", highlight: true },
   { label: "From", value: "Bayelsea, Nigeria" },
 ];
@@ -80,20 +80,18 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="mb-6 text-3xl font-bold text-slate-800 md:text-4xl">
-              I&apos;m <span className="text-cyan-400">Godswill Asuquo,</span> a Developer
+              I&apos;m <span className="text-cyan-400">Godswill Emmanuel,</span> a Developer
             </h2>
 
             <p className="mb-6 text-lg leading-9 text-slate-600">
               I help you build brand for your business at an affordable price.
-              Thousands of clients have procured exceptional results while working
-              with our dedicated team. when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              Clients have procured exceptional results while working
+              with our dedicated team. 
             </p>
 
             <p className="text-lg leading-9 text-slate-600">
               Delivering work within time and budget which meets client&apos;s
-              requirements is our moto. Lorem Ipsum has been the industry&apos;s
-              standard dummy text ever when an unknown printer took a galley.
+              requirements is our moto.
             </p>
           </motion.div>
 

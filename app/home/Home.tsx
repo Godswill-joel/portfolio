@@ -1,5 +1,6 @@
 import AboutPage from "./About";
 import PortfolioLandingPage from "./Hero";
+import ServicesPage from "./Services";
 
 export default function Home() {
   return (
@@ -10,6 +11,9 @@ export default function Home() {
 
       <section id="about">
         <AboutPage />
+      </section>
+      <section  id="services">
+        <ServicesPage />
       </section>
     </main>
   );
