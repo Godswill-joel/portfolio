@@ -83,7 +83,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* ─── MOBILE TOP NAVBAR ─── */}
       <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between bg-[#07111d]/95 px-5 py-3  backdrop-blur-md lg:hidden">
         <div className="flex items-center gap-3">
           {socialIcons.map((Icon: IconType, i: number) => (
@@ -111,12 +110,9 @@ export default function Sidebar() {
           <span className="h-[2px] w-5 rounded-full bg-white/70 transition-all" />
         </button>
       </header>
-
-      {/* ─── MOBILE DRAWER ─── */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
@@ -126,8 +122,6 @@ export default function Sidebar() {
               onClick={(): void => setIsOpen(false)}
               className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
             />
-
-            {/* Drawer */}
             <motion.aside
               key="drawer"
               initial={{ x: "-100%" }}

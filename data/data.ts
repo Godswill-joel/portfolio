@@ -121,3 +121,25 @@ export const experienceData: ResumeItem[] = [
       'Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.',
   },
 ];
+
+export type Skill = {
+  name: string;
+  value: number;
+};
+
+/* =========================
+   DATA
+========================= */
+
+export const skillsLeft: Skill[] = [
+  { name: "Web Design", value: 65 },
+  { name: "HTML/CSS", value: 95 },
+  { name: "JavaScript", value: 80 },
+];
+
+export const skillsRight: Skill[] = [
+  { name: "React JS", value: 70 },
+  { name: "Angular Js", value: 60 },
+  { name: "Bootstrap", value: 99 },
+];
+
