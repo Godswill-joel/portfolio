@@ -12,15 +12,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.12 }}
-            className="flex items-start gap-5 rounded-2xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+            className="flex items-start gap-8 rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
         >
-            <div className="flex min-h-[64px] min-w-[64px] items-center justify-center rounded-xl bg-[#f0fdf4]">
+            <div className="flex min-h-[84px] min-w-[84px] items-center justify-center rounded-xl bg-[#f0fdf4]">
                 <Icon className="h-8 w-8 text-cyan-400" />
             </div>
 
             <div>
-                <h3 className="mb-2 text-xl font-bold text-slate-800">{service.title}</h3>
-                <p className="text-base leading-7 text-slate-500">{service.description}</p>
+                <h3 className="mb-2 text-2xl font-bold text-slate-800">{service.title}</h3>
+                <p className="text-xl leading-7 text-slate-500">{service.description}</p>
             </div>
         </motion.div>
     );
