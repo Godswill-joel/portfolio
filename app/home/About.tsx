@@ -108,7 +108,7 @@ export default function AboutPage() {
                 className="flex flex-wrap items-center gap-2 border-b border-slate-300 pb-4 text-lg"
               >
                 <span className="font-semibold text-slate-800">{item.label}:</span>
-                <span className={item.highlight ? "text-emerald-400" : "text-slate-600"}>
+                <span className={item.highlight ? "text-cyan-400" : "text-slate-600"}>
                   {item.value}
                 </span>
               </div>
