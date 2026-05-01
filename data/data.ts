@@ -162,13 +162,12 @@ export type Field = {
 };
 
 export const contactInfo: ContactInfo[] = [
-  { id: "phone", icon: Phone, value: "(060) 444 434 444" },
-  { id: "fax", icon: Phone, value: "(060) 555 545 555" },
-  { id: "mail", icon: Mail, value: "chat@simone.com" },
+  { id: "phone", icon: Phone, value: "+234 904 937 5954 " },
+  { id: "Whatsapp", icon: Phone, value: "+234 706 690 3185" },
+  { id: "mail", icon: Mail, value: "asuquogodswill0@gmail.com" },
 ];
 
 export const socials: SocialLink[] = [
-  { id: "web", icon: Globe },
   { id: "twitter", icon: FaXTwitter },
   { id: "facebook", icon: FaFacebookF },
   { id: "github", icon: FaGithub },

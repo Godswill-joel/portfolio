@@ -15,6 +15,14 @@ function HeroSection() {
     }, 4500);
     return () => clearInterval(timer);
   }, []);
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      const offset = 80; // Same offset used in Sidebar
+      const elementPosition = contactSection.offsetTop - offset;
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden lg:ml-[280px]">
@@ -45,10 +53,10 @@ function HeroSection() {
                 initial={{ y: 40, opacity: 0, filter: "blur(10px)" }}
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                 exit={{ y: -40, opacity: 0, filter: "blur(10px)" }}
-                transition={{ 
-                  duration: 1.2,  
-                  ease: [0.25, 0.1, 0.25, 1],  
-                  times: [0, 2] 
+                transition={{
+                  duration: 1.2,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  times: [0, 2]
                 }}
                 className="absolute inset-0 flex items-center justify-center whitespace-nowrap lg:justify-start"
               >
@@ -61,13 +69,14 @@ function HeroSection() {
         <p className="mb-10 text-sm text-white/85 sm:text-base md:text-xl lg:text-2xl">
           based in Port-Harcourt, Nigeria.
         </p>
-       <Link href={"/About"}>
-       <button
-        className="rounded-full border-2 border-cyan-400 px-7 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-400 hover:text-[#07111d] sm:px-10 sm:py-4 sm:text-base md:text-lg">
+
+        <button
+          onClick={scrollToContact}
+          className="rounded-full border-2 border-cyan-400 px-7 py-3 text-sm font-semibold text-cyan-400 transition-all duration-300 hover:bg-cyan-400 hover:text-[#07111d] sm:px-10 sm:py-4 sm:text-base md:text-lg">
           Hire Me
         </button>
-       </Link>
-       
+
+
       </div>
     </section>
   );
