@@ -26,33 +26,33 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   );
 }
 
-export default function ServicesPage(){
+export default function ServicesPage() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center bg-[#FFF8E7] px-12 py-24 md:px-12 lg:px-24">
+    <section className="min-h-screen bg-[#FFF8E7] px-6 py-16 md:px-12 lg:ml-[280px] lg:px-16 lg:py-24">
+      <div className="mx-auto max-w-7xl">
 
-      {/* Watermark — "Services" sits behind */}
-      <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-3/2 select-none text-[5rem] font-extrabold uppercase tracking-widest text-slate-200/80 md:text-[9rem] lg:text-[12rem]">
-        Services
-      </span>
-
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
-
-        {/* Heading — "What I Do?" overlays on top */}
-        <div className="mb-16 text-center">
-          <h2 className="text-5xl font-extrabold text-slate-900 md:text-6xl lg:text-7xl">
-            What I Do?
+        {/* Section header — matches AboutPage pattern */}
+        <div className="relative mb-20 text-center">
+          <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-extrabold uppercase tracking-wider text-gray-200 md:text-8xl lg:text-9xl">
+            Services
           </h2>
-          <div className="mx-auto mt-5 h-1 w-28 rounded-full bg-cyan-400" />
+
+          <div className="relative z-10 inline-block">
+            <h3 className="text-3xl font-bold text-slate-800 md:text-5xl">
+              What I Do?
+            </h3>
+            <div className="mx-auto mt-3 h-1 w-20 bg-cyan-400" />
+          </div>
         </div>
 
-        {/* Cards grid — centered */}
-        <div className="grid place-items-center gap-8 sm:grid-cols-2">
+        {/* Cards grid */}
+        <div className="grid gap-8 sm:grid-cols-2">
           {services.map((service: Service, index: number) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
+
       </div>
     </section>
   );
 }
-

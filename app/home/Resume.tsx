@@ -1,9 +1,8 @@
 'use client';
 
-import { ResumeItem, educationData, experienceData, Skill, skillsLeft, skillsRight   } from "../../data/data";
+import { ResumeItem, educationData, experienceData, Skill, skillsLeft, skillsRight } from "../../data/data";
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
-
 
 function useCountUp(target: number, duration = 1400): number {
   const [value, setValue] = useState<number>(0);
@@ -25,14 +24,7 @@ function useCountUp(target: number, duration = 1400): number {
   return value;
 }
 
-
-function YearBadge({
-  startYear,
-  endYear,
-}: {
-  startYear: number;
-  endYear: number;
-}) {
+function YearBadge({ startYear, endYear }: { startYear: number; endYear: number }){
   const animatedStart = useCountUp(startYear);
   const animatedEnd = useCountUp(endYear);
 
@@ -43,7 +35,7 @@ function YearBadge({
   );
 }
 
-function ResumeCard({ item }: { item: ResumeItem }) {
+function ResumeCard({ item }: { item: ResumeItem }){
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-300 hover:shadow-md sm:p-6 md:p-8">
       <YearBadge startYear={item.startYear} endYear={item.endYear} />
@@ -63,14 +55,7 @@ function ResumeCard({ item }: { item: ResumeItem }) {
   );
 }
 
-
-function SkillBar({
-  skill,
-  trigger,
-}: {
-  skill: Skill;
-  trigger: boolean;
-}) {
+function SkillBar({ skill, trigger }: { skill: Skill; trigger: boolean }) {
   const count = useCountUp(trigger ? skill.value : 0, 1800);
 
   return (
@@ -96,56 +81,51 @@ function SkillBar({
 
 function SkillsSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [startAnimation, setStartAnimation] = useState(false);
+  const [startAnimation, setStartAnimation] = useState<boolean>(false);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
     if (!currentRef) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartAnimation(true);
-        }
+      ([entry]: IntersectionObserverEntry[]) => {
+        if (entry.isIntersecting) setStartAnimation(true);
       },
       { threshold: 0.3 }
     );
 
     observer.observe(currentRef);
-
-    return () => {
-      if (currentRef) observer.unobserve(currentRef);
-    };
+    return (): void => { if (currentRef) observer.unobserve(currentRef); };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="bg-[#f5f5f5] px-4 py-20 sm:px-6 md:px-10 lg:px-16"
+      className="bg-[#f5f5f5] px-6 py-16 md:px-12 lg:ml-[280px] lg:px-16 lg:py-24"
     >
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-3xl font-bold text-zinc-800 sm:text-4xl md:text-5xl">
-          My Skills
-        </h2>
+      <div className="mx-auto max-w-7xl">
+        <div className="relative mb-16 text-center">
+          <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-extrabold uppercase tracking-wider text-gray-200 md:text-8xl lg:text-9xl">
+            Skills
+          </h2>
+          <div className="relative z-10 inline-block">
+            <h3 className="text-3xl font-bold text-zinc-800 md:text-5xl">
+              My Skills
+            </h3>
+            <div className="mx-auto mt-3 h-1 w-20 bg-cyan-400" />
+          </div>
+        </div>
 
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-8">
-            {skillsLeft.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                skill={skill}
-                trigger={startAnimation}
-              />
+            {skillsLeft.map((skill: Skill) => (
+              <SkillBar key={skill.name} skill={skill} trigger={startAnimation} />
             ))}
           </div>
 
           <div className="space-y-8">
-            {skillsRight.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                skill={skill}
-                trigger={startAnimation}
-              />
+            {skillsRight.map((skill: Skill) => (
+              <SkillBar key={skill.name} skill={skill} trigger={startAnimation} />
             ))}
           </div>
         </div>
@@ -167,20 +147,26 @@ function SkillsSection() {
 export default function ResumePage() {
   return (
     <>
-      <section className="relative flex min-h-screen items-start justify-center overflow-hidden bg-[#f5f5f5] px-4 py-16 sm:px-6 sm:py-20 md:px-10 md:py-24 lg:px-16 lg:py-28">
-        <span className="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 select-none text-[3.5rem] font-extrabold uppercase tracking-widest text-zinc-200 sm:text-[5rem] md:text-[7rem] lg:top-12 lg:text-[9rem] xl:text-[11rem]">
-          Summary
-        </span>
+      {/* ── Resume Section ── */}
+      <section className="relative min-h-screen bg-[#f5f5f5] px-6 py-16 md:px-12 lg:ml-[280px] lg:px-16 lg:py-24">
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
-          <div className="mb-10 text-center sm:mb-12 md:mb-16">
-            <h2 className="text-3xl font-extrabold text-zinc-800 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+        {/* Watermark — matches AboutPage pattern */}
+        <div className="relative mb-20 text-center">
+          <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-extrabold uppercase tracking-wider text-gray-200 md:text-8xl lg:text-9xl">
+            Summary
+          </h2>
+          <div className="relative z-10 inline-block">
+            <h3 className="text-3xl font-bold text-zinc-800 md:text-5xl">
               Resume
-            </h2>
-            <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-cyan-400 sm:w-24 md:w-28" />
+            </h3>
+            <div className="mx-auto mt-3 h-1 w-20 bg-cyan-400" />
           </div>
+        </div>
 
+        <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+
+            {/* Education */}
             <div>
               <h3 className="mb-5 text-xl font-bold text-zinc-800 sm:mb-6 sm:text-2xl md:mb-8 md:text-3xl">
                 My Education
@@ -192,6 +178,7 @@ export default function ResumePage() {
               </div>
             </div>
 
+            {/* Experience */}
             <div>
               <h3 className="mb-5 mt-8 text-xl font-bold text-zinc-800 sm:mb-6 sm:text-2xl md:mb-8 md:text-3xl lg:mt-0">
                 My Experience
@@ -202,10 +189,12 @@ export default function ResumePage() {
                 ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
+      {/* ── Skills Section ── */}
       <SkillsSection />
     </>
   );
