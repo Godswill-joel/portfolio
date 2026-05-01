@@ -1,12 +1,15 @@
 import {
     Palette,
     Monitor,
-    PencilRuler,
     Brush,
-    BarChart3,
-    Megaphone,
     LucideIcon
 } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Globe,
+} from "lucide-react";
+import { FaGithub, FaXTwitter, FaFacebookF } from "react-icons/fa6";
 
 
 export type Service = {
@@ -127,19 +130,57 @@ export type Skill = {
   value: number;
 };
 
-/* =========================
-   DATA
-========================= */
-
 export const skillsLeft: Skill[] = [
   { name: "Web Design", value: 65 },
   { name: "HTML/CSS", value: 95 },
   { name: "JavaScript", value: 80 },
+  {name: "Reactive Native", value: 65}
 ];
 
 export const skillsRight: Skill[] = [
   { name: "React JS", value: 70 },
-  { name: "Angular Js", value: 60 },
-  { name: "Bootstrap", value: 99 },
+  { name: "Next Js", value: 60 },
+  { name: "Tailwind Css", value: 99 },
+  {name: "Node Js", value: 66}
+];
+
+export type ContactInfo = {
+  id: string;
+  icon: any;
+  value: string;
+};
+
+export type SocialLink = {
+  id: string;
+  icon: any;
+};
+
+export type Field = {
+  id: string;
+  type: "input" | "textarea";
+  placeholder: string;
+};
+
+export const contactInfo: ContactInfo[] = [
+  { id: "phone", icon: Phone, value: "(060) 444 434 444" },
+  { id: "fax", icon: Phone, value: "(060) 555 545 555" },
+  { id: "mail", icon: Mail, value: "chat@simone.com" },
+];
+
+export const socials: SocialLink[] = [
+  { id: "web", icon: Globe },
+  { id: "twitter", icon: FaXTwitter },
+  { id: "facebook", icon: FaFacebookF },
+  { id: "github", icon: FaGithub },
+];
+
+export const fields: Field[] = [
+  { id: "name", type: "input", placeholder: "Name" },
+  { id: "email", type: "input", placeholder: "Email" },
+  {
+    id: "message",
+    type: "textarea",
+    placeholder: "Tell us more about your needs.........",
+  },
 ];
 
